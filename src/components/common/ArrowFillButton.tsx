@@ -37,6 +37,8 @@ export interface ArrowFillButtonOwnProps {
   hoverArrowColor?: string;
   badgeBg?: string;
   badgeTextColor?: string;
+  badgeFillBg?: string;
+  badgeFillTextColor?: string;
   icon?: any;
   as?: 'a' | 'button';
   type?: 'button' | 'submit' | 'reset';

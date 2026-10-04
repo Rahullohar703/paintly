@@ -56,7 +56,6 @@ const DEFAULT_ITEMS: NavItem[] = [
  */
 export const TubelightNavbar: React.FC<TubelightNavbarProps> = ({
   items = DEFAULT_ITEMS,
-  logoSrc = '/paintly-logo.png',
   iconSrc = '/paintly%20(180%20x%20180%20px).jpg',
   logoAlt = 'Paintly - Painting Spaces Better',
   brandName = 'PAINT',
