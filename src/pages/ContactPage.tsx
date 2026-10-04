@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, MessageSquare, Clock, Send, CheckCircle2 } from 'lucide-react';
 import { companyConfig } from '../data/companyData';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
+import { ArrowFillButton } from '../components/common/ArrowFillButton';
 
 export const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -312,23 +312,21 @@ export const ContactPage: React.FC = () => {
                     />
                   </div>
 
-                  <motion.button
-                    type="submit"
-                    disabled={loading}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                    className="w-full inline-flex items-center justify-center gap-2 rounded-md bg-[#20211F] px-6 py-3.5 text-sm font-semibold text-white hover:bg-[#D9683B] transition-colors disabled:opacity-50 cursor-pointer shadow-sm hover:shadow-md"
-                  >
-                    {loading ? (
-                      <span>Submitting...</span>
-                    ) : (
-                      <>
-                        <span>Send Message</span>
-                        <Send className="h-4 w-4" />
-                      </>
-                    )}
-                  </motion.button>
+                  <div className="pt-1 flex justify-center">
+                    <ArrowFillButton
+                      type="submit"
+                      disabled={loading}
+                      size="lg"
+                      text={loading ? 'Submitting...' : 'Send Message'}
+                      icon={Send}
+                      bgColor="#20211F"
+                      fillBgColor="#D9683B"
+                      textColor="#ffffff"
+                      fillTextColor="#ffffff"
+                      arrowColor="#ffffff"
+                      className="w-full shadow-sm hover:shadow-md"
+                    />
+                  </div>
 
                   <p className="text-[11px] text-[#73736F] text-center">
                     Looking for an instant quote? Use our{' '}

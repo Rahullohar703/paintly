@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { 
-  ArrowRight, 
   ArrowLeft, 
   CheckCircle2, 
   Check, 
@@ -13,6 +11,7 @@ import {
 } from 'lucide-react';
 import type { QuoteFormData } from '../types';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
+import { ArrowFillButton } from '../components/common/ArrowFillButton';
 
 export const QuotePage: React.FC = () => {
   const [searchParams] = useSearchParams();
@@ -696,33 +695,31 @@ export const QuotePage: React.FC = () => {
                   ) : <div />}
 
                   {step < 4 ? (
-                    <motion.div whileHover={{ scale: 1.03, y: -1 }} whileTap={{ scale: 0.97 }}>
-                      <button
-                        type="button"
-                        onClick={handleNext}
-                        className="inline-flex items-center gap-1.5 px-6 py-3 rounded-xl bg-[#20211F] text-xs font-bold text-white hover:bg-[#D9683B] transition-colors cursor-pointer"
-                      >
-                        <span>Continue to Step {step + 1}</span>
-                        <ArrowRight className="h-3.5 w-3.5" />
-                      </button>
-                    </motion.div>
+                    <ArrowFillButton
+                      type="button"
+                      onClick={handleNext}
+                      size="default"
+                      text={`Continue to Step ${step + 1}`}
+                      bgColor="#20211F"
+                      fillBgColor="#D9683B"
+                      textColor="#ffffff"
+                      fillTextColor="#ffffff"
+                      arrowColor="#ffffff"
+                      className="shadow-sm hover:shadow-md"
+                    />
                   ) : (
-                    <motion.div whileHover={{ scale: 1.03, y: -1 }} whileTap={{ scale: 0.97 }}>
-                      <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-[#D9683B] text-sm font-extrabold text-white hover:bg-[#c4572b] transition-colors disabled:opacity-50 shadow-md cursor-pointer animate-cta-pulse"
-                      >
-                        {isSubmitting ? (
-                          <span>Processing Scope...</span>
-                        ) : (
-                          <>
-                            <span>Confirm Free Home Visit</span>
-                            <CheckCircle2 className="h-4 w-4" />
-                          </>
-                        )}
-                      </button>
-                    </motion.div>
+                    <ArrowFillButton
+                      type="submit"
+                      disabled={isSubmitting}
+                      size="lg"
+                      text={isSubmitting ? 'Processing Scope...' : 'Confirm Free Home Visit'}
+                      bgColor="#D9683B"
+                      fillBgColor="#20211F"
+                      textColor="#ffffff"
+                      fillTextColor="#ffffff"
+                      arrowColor="#ffffff"
+                      className="shadow-lg hover:shadow-xl"
+                    />
                   )}
                 </div>
 

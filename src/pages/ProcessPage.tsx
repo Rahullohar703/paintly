@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { ArrowUpRight, Sparkles, Check } from 'lucide-react';
+import { Sparkles, Check } from 'lucide-react';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
+import { ArrowFillButton } from '../components/common/ArrowFillButton';
 
 export const ProcessPage: React.FC = () => {
   return (
@@ -164,16 +163,18 @@ export const ProcessPage: React.FC = () => {
           <p className="text-base sm:text-lg text-[#CDCAC2] max-w-xl mx-auto">
             Takes 30 seconds. No advance payment required. Our friendly supervisor will visit your home at your convenience.
           </p>
-          <div className="pt-2">
-            <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.96 }} className="inline-block">
-              <Link
-                to="/quote"
-                className="inline-flex items-center gap-2 rounded-xl bg-[#D9683B] px-8 py-4 text-base font-extrabold text-white hover:bg-[#c4572b] transition-all shadow-md animate-cta-pulse"
-              >
-                <span>Book Free Visit (No Payment)</span>
-                <ArrowUpRight className="h-5 w-5" />
-              </Link>
-            </motion.div>
+          <div className="pt-2 flex justify-center">
+            <ArrowFillButton
+              to="/quote"
+              size="lg"
+              text="Book Free Visit (No Payment)"
+              bgColor="#D9683B"
+              fillBgColor="#FAF9F6"
+              textColor="#ffffff"
+              fillTextColor="#20211F"
+              arrowColor="#ffffff"
+              className="shadow-2xl"
+            />
           </div>
         </div>
       </section>

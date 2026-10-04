@@ -1,9 +1,9 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { useParams, Link, Navigate } from 'react-router-dom';
-import { ArrowUpRight, ArrowLeft, ArrowRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { projectsData } from '../data/projectsData';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
+import { ArrowFillButton } from '../components/common/ArrowFillButton';
 
 export const ProjectDetailPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -46,15 +46,17 @@ export const ProjectDetailPage: React.FC = () => {
             </div>
 
             <div className="flex items-center gap-3">
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Link
-                  to="/quote"
-                  className="inline-flex items-center gap-2 rounded-md bg-[#D9683B] px-6 py-3 text-sm font-semibold text-white hover:bg-[#c4572b] transition-colors shadow-sm hover:shadow-md cursor-pointer"
-                >
-                  <span>Request Similar Quote</span>
-                  <ArrowUpRight className="h-4 w-4" />
-                </Link>
-              </motion.div>
+              <ArrowFillButton
+                to="/quote"
+                size="default"
+                text="Request Similar Quote"
+                bgColor="#D9683B"
+                fillBgColor="#20211F"
+                textColor="#ffffff"
+                fillTextColor="#ffffff"
+                arrowColor="#ffffff"
+                className="shadow-sm hover:shadow-md"
+              />
             </div>
           </div>
 
@@ -283,16 +285,18 @@ export const ProjectDetailPage: React.FC = () => {
           <p className="text-base text-[#A2A29D] max-w-xl mx-auto">
             Contact us for a detailed site inspection, moisture diagnostic, and transparent quotation.
           </p>
-          <div className="pt-2">
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="inline-block">
-              <Link
-                to="/quote"
-                className="inline-flex items-center gap-2 rounded-md bg-[#D9683B] px-8 py-3.5 text-sm font-semibold text-white hover:bg-[#c4572b] transition-colors shadow-sm hover:shadow-md cursor-pointer"
-              >
-                <span>Request a Free Quote</span>
-                <ArrowUpRight className="h-4 w-4" />
-              </Link>
-            </motion.div>
+          <div className="pt-2 flex justify-center">
+            <ArrowFillButton
+              to="/quote"
+              size="lg"
+              text="Request a Free Quote"
+              bgColor="#D9683B"
+              fillBgColor="#FAF9F6"
+              textColor="#ffffff"
+              fillTextColor="#20211F"
+              arrowColor="#ffffff"
+              className="shadow-2xl"
+            />
           </div>
         </div>
       </section>

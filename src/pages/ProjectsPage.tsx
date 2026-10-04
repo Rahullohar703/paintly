@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { ArrowUpRight, ArrowRight, Image as ImageIcon } from 'lucide-react';
 import { projectsData } from '../data/projectsData';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
+import { ArrowFillButton } from '../components/common/ArrowFillButton';
 
 export const ProjectsPage: React.FC = () => {
   const [filter, setFilter] = useState<'all' | 'residential' | 'commercial' | 'industrial'>('all');
@@ -163,20 +164,18 @@ export const ProjectsPage: React.FC = () => {
           <p className="text-base text-[#A2A29D] max-w-xl mx-auto">
             Discuss your design intent, substrate condition, or commercial schedule with our painting specialists.
           </p>
-          <div className="pt-2">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-block"
-            >
-              <Link
-                to="/quote"
-                className="inline-flex items-center gap-2 rounded-md bg-[#D9683B] px-8 py-3.5 text-sm font-semibold text-white hover:bg-[#c4572b] transition-colors shadow-sm hover:shadow-md cursor-pointer"
-              >
-                <span>Get an Itemized Estimate</span>
-                <ArrowUpRight className="h-4 w-4" />
-              </Link>
-            </motion.div>
+          <div className="pt-2 flex justify-center">
+            <ArrowFillButton
+              to="/quote"
+              size="lg"
+              text="Get an Itemized Estimate"
+              bgColor="#D9683B"
+              fillBgColor="#FAF9F6"
+              textColor="#ffffff"
+              fillTextColor="#20211F"
+              arrowColor="#ffffff"
+              className="shadow-2xl"
+            />
           </div>
         </div>
       </section>

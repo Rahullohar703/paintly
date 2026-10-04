@@ -49,7 +49,8 @@ export const Header: React.FC = () => {
           {/* BRAND LOGO */}
           <Link
             to="/"
-            className="flex items-center group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D9683B]"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="flex items-center group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D9683B]"
             aria-label="Paintly Home"
           >
             <img
@@ -159,3 +160,8 @@ export const Header: React.FC = () => {
     </header>
   );
 };
+
+export { TubelightNavbar } from './TubelightNavbar';
+export { ArrowFillButton } from './ArrowFillButton';
+export { AntiMetalButton } from './AntiMetalButton';
+

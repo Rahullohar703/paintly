@@ -15,7 +15,12 @@ export const Footer: React.FC = () => {
           
           {/* COLUMN 1: BRAND */}
           <div className="lg:col-span-2 space-y-5">
-            <Link to="/" className="inline-block group" aria-label="Paintly Home">
+            <Link
+              to="/"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="inline-block group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D9683B] rounded-lg"
+              aria-label="Paintly Home"
+            >
               <div className="bg-white rounded-lg px-2.5 py-1.5 inline-flex items-center shadow-xs transition-transform duration-200 group-hover:scale-105">
                 <img
                   src="/paintly-logo.png"

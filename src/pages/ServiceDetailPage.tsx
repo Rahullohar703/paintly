@@ -1,11 +1,11 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { useParams, Link, Navigate } from 'react-router-dom';
-import { ArrowUpRight, ArrowRight, CheckCircle2, Shield } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Shield } from 'lucide-react';
 import { servicesData } from '../data/servicesData';
 import { projectsData } from '../data/projectsData';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { FaqAccordion } from '../components/common/FaqAccordion';
+import { ArrowFillButton } from '../components/common/ArrowFillButton';
 
 export const ServiceDetailPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -48,23 +48,29 @@ export const ServiceDetailPage: React.FC = () => {
               </p>
 
               <div className="pt-2 flex flex-wrap gap-4">
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Link
-                    to={`/quote?service=${service.slug}`}
-                    className="inline-flex items-center gap-2 rounded-md bg-[#D9683B] px-6 py-3.5 text-sm font-semibold text-white shadow-sm hover:bg-[#c4572b] transition-colors cursor-pointer"
-                  >
-                    <span>Request Quote for {service.title}</span>
-                    <ArrowUpRight className="h-4 w-4" />
-                  </Link>
-                </motion.div>
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <a
-                    href="#scope"
-                    className="inline-flex items-center gap-2 rounded-md border border-[#CDCAC2] bg-white px-6 py-3.5 text-sm font-medium text-[#20211F] hover:bg-[#F1F0EC] transition-colors cursor-pointer"
-                  >
-                    <span>Explore Scope of Work</span>
-                  </a>
-                </motion.div>
+                <ArrowFillButton
+                  to={`/quote?service=${service.slug}`}
+                  size="default"
+                  text="Request Free Quote"
+                  bgColor="#D9683B"
+                  fillBgColor="#20211F"
+                  textColor="#ffffff"
+                  fillTextColor="#ffffff"
+                  arrowColor="#ffffff"
+                  className="shadow-sm hover:shadow-md"
+                />
+
+                <ArrowFillButton
+                  href="#scope"
+                  size="default"
+                  text="Explore Scope of Work"
+                  bgColor="#ffffff"
+                  fillBgColor="#F1F0EC"
+                  textColor="#20211F"
+                  fillTextColor="#20211F"
+                  arrowColor="#D9683B"
+                  className="border border-[#CDCAC2] shadow-xs"
+                />
               </div>
             </div>
 
@@ -335,23 +341,29 @@ export const ServiceDetailPage: React.FC = () => {
             Get an itemized quotation covering exact preparation steps, premium paints, and fixed scheduling.
           </p>
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto">
-              <Link
-                to={`/quote?service=${service.slug}`}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-md bg-[#D9683B] px-8 py-3.5 text-sm font-semibold text-white hover:bg-[#c4572b] transition-colors shadow-sm hover:shadow-md cursor-pointer"
-              >
-                <span>Get Free Quotation</span>
-                <ArrowUpRight className="h-4 w-4" />
-              </Link>
-            </motion.div>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto">
-              <Link
-                to="/contact"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-md border border-white/20 bg-white/5 px-8 py-3.5 text-sm font-medium text-white hover:bg-white/10 transition-colors cursor-pointer"
-              >
-                <span>Speak With a Specialist</span>
-              </Link>
-            </motion.div>
+            <ArrowFillButton
+              to={`/quote?service=${service.slug}`}
+              size="lg"
+              text="Get Free Quotation"
+              bgColor="#D9683B"
+              fillBgColor="#FAF9F6"
+              textColor="#ffffff"
+              fillTextColor="#20211F"
+              arrowColor="#ffffff"
+              className="w-full sm:w-auto shadow-2xl"
+            />
+
+            <ArrowFillButton
+              to="/contact"
+              size="lg"
+              text="Speak With a Specialist"
+              bgColor="rgba(255, 255, 255, 0.08)"
+              fillBgColor="#D9683B"
+              textColor="#ffffff"
+              fillTextColor="#ffffff"
+              arrowColor="#ffffff"
+              className="w-full sm:w-auto border-white/20 shadow-md"
+            />
           </div>
         </div>
       </section>

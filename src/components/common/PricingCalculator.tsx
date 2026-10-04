@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import { 
   Check, 
-  ArrowRight, 
   Sparkles, 
   CheckCircle2
 } from 'lucide-react';
 import { simpleEstimatorItems, budgetTiers } from '../../data/pricingData';
+import { ArrowFillButton } from './ArrowFillButton';
 
 export const PricingCalculator: React.FC = () => {
   const [selectedHomeType, setSelectedHomeType] = useState<string>('2bhk');
@@ -213,15 +212,19 @@ export const PricingCalculator: React.FC = () => {
           </div>
 
           {/* Big Action button */}
-            <motion.div whileHover={{ scale: 1.025, y: -2 }} whileTap={{ scale: 0.98 }} className="w-full">
-              <Link
-                to="/quote"
-                className="flex items-center justify-center gap-2 w-full rounded-xl bg-[#D9683B] px-6 py-4 text-sm sm:text-base font-bold text-white hover:bg-[#c4572b] transition-all shadow-md group animate-cta-pulse"
-              >
-                <span>Book Free Visit & Confirm Price</span>
-                <ArrowRight className="h-5 w-5 group-hover:translate-x-1.5 transition-transform" />
-              </Link>
-            </motion.div>
+          <div className="w-full flex justify-center">
+            <ArrowFillButton
+              to="/quote"
+              size="lg"
+              text="Book Free Home Visit"
+              bgColor="#D9683B"
+              fillBgColor="#20211F"
+              textColor="#ffffff"
+              fillTextColor="#ffffff"
+              arrowColor="#ffffff"
+              className="w-full shadow-md"
+            />
+          </div>
 
             <p className="text-[11px] text-center text-[#A2A29D]">
               Our experienced supervisor visits your home, inspects your walls, and provides a clear itemized quote on paper. 100% free with zero obligation.

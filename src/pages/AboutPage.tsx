@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { ArrowUpRight, Heart } from 'lucide-react';
+import { Heart, UserCheck, Clock, ShieldCheck, XCircle, CheckCircle2 } from 'lucide-react';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
+import { ArrowFillButton } from '../components/common/ArrowFillButton';
 
 export const AboutPage: React.FC = () => {
   return (
@@ -26,24 +25,30 @@ export const AboutPage: React.FC = () => {
                 We started Paintly because getting your house painted shouldn’t give you a headache. No paint drops on your sofas, no surprise bills, and no painters who vanish halfway through the job.
               </p>
               <div className="pt-2 flex flex-wrap gap-4">
-                <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.96 }}>
-                  <Link
-                    to="/quote"
-                    className="inline-flex items-center gap-2 rounded-xl bg-[#D9683B] px-8 py-4 text-base font-extrabold text-white hover:bg-[#c4572b] transition-all shadow-md animate-cta-pulse"
-                  >
-                    <span>Book Free Home Visit</span>
-                    <ArrowUpRight className="h-5 w-5" />
-                  </Link>
-                </motion.div>
+                <ArrowFillButton
+                  to="/quote"
+                  size="lg"
+                  text="Book Free Home Visit"
+                  baseBg="#D9683B"
+                  fillBg="#20211F"
+                  textColor="#ffffff"
+                  fillTextColor="#FAF9F6"
+                  badgeBg="rgba(255, 255, 255, 0.2)"
+                  className="shadow-md"
+                />
 
-                <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.96 }}>
-                  <Link
-                    to="/services"
-                    className="inline-flex items-center gap-2 rounded-xl border-2 border-[#20211F] bg-white px-7 py-4 text-base font-bold text-[#20211F] hover:bg-[#F1F0EC] transition-all"
-                  >
-                    <span>See What We Paint</span>
-                  </Link>
-                </motion.div>
+                <ArrowFillButton
+                  to="/services"
+                  size="lg"
+                  text="See What We Paint"
+                  baseBg="#ffffff"
+                  fillBg="#F1F0EC"
+                  textColor="#20211F"
+                  fillTextColor="#20211F"
+                  badgeBg="#E5E3DE"
+                  badgeTextColor="#20211F"
+                  className="border border-[#D1CEC6] shadow-xs"
+                />
               </div>
             </div>
 
@@ -60,104 +65,150 @@ export const AboutPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 2. OUR STORY: THE OLD WAY VS THE PAINTLY WAY */}
-      <section className="py-16 md:py-24 border-b border-[#E5E3DE] bg-[#F1F0EC]">
+      {/* 2. THE CONTRACTOR STANDARD: UNREGULATED MARKET VS THE PAINTLY PROTOCOL */}
+      <section className="py-20 md:py-28 border-b border-[#E5E3DE] bg-[#F1F0EC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="text-center max-w-2xl mx-auto mb-14 space-y-2">
+          <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
             <span className="text-xs font-bold uppercase tracking-widest text-[#D9683B]">
-              Why We Are Different
+              Contractor Standards
             </span>
-            <h2 className="font-heading text-3xl sm:text-4xl font-extrabold text-[#20211F]">
-              The Old Painting Way vs The Paintly Way
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#20211F]">
+              The Traditional Painter vs The Paintly Protocol
             </h2>
-            <p className="text-sm sm:text-base text-[#73736F]">
-              See why older homeowners, families, and busy people choose us.
+            <p className="text-sm sm:text-base text-[#73736F] leading-relaxed">
+              Why discerning homeowners, architects, and busy families trust our documented engineering workflow.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* The Old Way */}
-            <div className="rounded-3xl border-2 border-red-200 bg-red-50/50 p-7 sm:p-8 space-y-4">
-              <div className="flex items-center gap-2 text-red-600 font-extrabold font-heading text-xl">
-                <span>❌</span>
-                <span>The Usual Local Painter</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto items-stretch">
+            {/* Conventional Painter */}
+            <div className="rounded-3xl border border-[#E5E3DE] bg-white p-8 sm:p-10 space-y-6 flex flex-col justify-between shadow-xs">
+              <div className="space-y-6">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-2xl bg-stone-100 border border-stone-200 flex items-center justify-center text-stone-500">
+                    <XCircle className="w-5 h-5 text-rose-500" />
+                  </div>
+                  <div>
+                    <span className="text-[11px] font-bold text-stone-500 uppercase tracking-wider">Unregulated Practice</span>
+                    <h3 className="font-heading text-xl font-bold text-[#20211F]">Conventional Painters</h3>
+                  </div>
+                </div>
+
+                <ul className="space-y-4 text-xs sm:text-sm text-[#4A4B46]">
+                  <li className="flex items-start gap-3">
+                    <span className="w-5 h-5 rounded-full bg-rose-50 border border-rose-200 text-rose-600 flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold">✕</span>
+                    <span className="leading-snug"><strong>Minimal protection:</strong> Old newspapers loosely taped; paint mist and splatters on floors, marble, and switches.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-5 h-5 rounded-full bg-rose-50 border border-rose-200 text-rose-600 flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold">✕</span>
+                    <span className="leading-snug"><strong>Unverified paint cans:</strong> Diluted paints or opened containers brought from other sites that flake within months.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-5 h-5 rounded-full bg-rose-50 border border-rose-200 text-rose-600 flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold">✕</span>
+                    <span className="leading-snug"><strong>Vague Verbal Estimates:</strong> Low initial quotes that escalate with surprise bills for tape, putty, or overtime halfway through.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-5 h-5 rounded-full bg-rose-50 border border-rose-200 text-rose-600 flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold">✕</span>
+                    <span className="leading-snug"><strong>Messy Abandonment:</strong> Dust, dried drips, and unwashed tools left for the homeowner to clean up alone.</span>
+                  </li>
+                </ul>
               </div>
-              <ul className="space-y-3 text-xs sm:text-sm text-[#4A4B46]">
-                <li className="flex items-start gap-2">
-                  <span className="text-red-500 font-bold">✕</span>
-                  <span>Paint splattered over your floor tiles, marble, and fans.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-red-500 font-bold">✕</span>
-                  <span>Cheap local paint mixed with excess water that peels off in 6 months.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-red-500 font-bold">✕</span>
-                  <span>Starts with a cheap quote, then demands extra money every 2 days.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-red-500 font-bold">✕</span>
-                  <span>Leaves your house full of white dust and dirty newspaper.</span>
-                </li>
-              </ul>
+
+              <div className="pt-4 border-t border-[#E5E3DE] text-xs text-stone-500 font-medium">
+                Risk of wall peeling, hidden expenses & property damage
+              </div>
             </div>
 
-            {/* The Paintly Way */}
-            <div className="rounded-3xl border-2 border-emerald-300 bg-emerald-50/50 p-7 sm:p-8 space-y-4">
-              <div className="flex items-center gap-2 text-emerald-700 font-extrabold font-heading text-xl">
-                <span>✅</span>
-                <span>The Paintly Way</span>
+            {/* The Paintly Standard */}
+            <div className="rounded-3xl bg-[#20211F] text-white p-8 sm:p-10 space-y-6 flex flex-col justify-between shadow-xl ring-2 ring-[#D9683B]/50 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#D9683B]/10 rounded-full blur-2xl pointer-events-none" />
+
+              <div className="space-y-6 relative z-10">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-2xl bg-[#D9683B]/20 border border-[#D9683B]/30 flex items-center justify-center text-[#D9683B]">
+                    <CheckCircle2 className="w-5 h-5 text-[#D9683B]" />
+                  </div>
+                  <div>
+                    <span className="text-[11px] font-bold text-[#D9683B] uppercase tracking-wider">Documented Protocol</span>
+                    <h3 className="font-heading text-xl font-bold text-white">The Paintly Standard</h3>
+                  </div>
+                </div>
+
+                <ul className="space-y-4 text-xs sm:text-sm text-[#E5E3DE]">
+                  <li className="flex items-start gap-3">
+                    <span className="w-5 h-5 rounded-full bg-[#D9683B]/20 border border-[#D9683B]/40 text-[#D9683B] flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold">✓</span>
+                    <span className="leading-snug"><strong>Hermetic Masking:</strong> Heavy-gauge polythene film sealed around every electronic item, sofa, bed, and floor perimeter.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-5 h-5 rounded-full bg-[#D9683B]/20 border border-[#D9683B]/40 text-[#D9683B] flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold">✓</span>
+                    <span className="leading-snug"><strong>100% Sealed Batch Cans:</strong> Genuine Asian Paints & Berger buckets unboxed and seal-broken in front of you.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-5 h-5 rounded-full bg-[#D9683B]/20 border border-[#D9683B]/40 text-[#D9683B] flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold">✓</span>
+                    <span className="leading-snug"><strong>Itemized Fixed-Price Contract:</strong> Every wall square foot, paint grade, and milestone cost locked on paper beforehand.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-5 h-5 rounded-full bg-[#D9683B]/20 border border-[#D9683B]/40 text-[#D9683B] flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold">✓</span>
+                    <span className="leading-snug"><strong>Spotless Handover & 3-Yr Warranty:</strong> Floors swept clean, furniture replaced, and signed warranty certificate issued.</span>
+                  </li>
+                </ul>
               </div>
-              <ul className="space-y-3 text-xs sm:text-sm text-[#20211F]">
-                <li className="flex items-start gap-2">
-                  <span className="text-emerald-600 font-bold">✓</span>
-                  <span>Sofas, TV, and floors wrapped in fresh protective plastic sheets.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-emerald-600 font-bold">✓</span>
-                  <span>100% genuine Asian Paints / Berger sealed cans opened in front of you.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-emerald-600 font-bold">✓</span>
-                  <span>Exact written quote on paper before starting. Zero hidden fees.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-emerald-600 font-bold">✓</span>
-                  <span>We vacuum the floor and put all furniture back. 3-Year Warranty.</span>
-                </li>
-              </ul>
+
+              <div className="pt-4 border-t border-white/10 text-xs text-[#CDCAC2] font-medium relative z-10 flex items-center justify-between">
+                <span>Certified 3-Year No-Peel Guarantee</span>
+                <span className="text-[#D9683B] font-bold">100% Written Assurance</span>
+              </div>
             </div>
           </div>
 
         </div>
       </section>
 
-      {/* 3. CORE VALUES: POLITE, ON-TIME, HONEST */}
-      <section className="py-16 md:py-24 border-b border-[#E5E3DE] bg-[#FAF9F6]">
+      {/* 3. CORE COMMITMENTS */}
+      <section className="py-20 md:py-28 border-b border-[#E5E3DE] bg-[#FAF9F6]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#D9683B]">
+              Our Guarantees
+            </span>
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#20211F]">
+              Professional Standards You Can Count On
+            </h2>
+            <p className="text-sm sm:text-base text-[#73736F]">
+              Every project is managed with courteous communication, punctual timelines, and lasting accountability.
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-3xl border-2 border-[#E5E3DE] p-7 space-y-3 shadow-xs">
-              <span className="text-3xl">🤝</span>
-              <h3 className="font-heading text-xl font-bold text-[#20211F]">Polite & Background Checked</h3>
+            <div className="bg-white rounded-3xl border border-[#E5E3DE] p-8 space-y-4 shadow-xs hover:border-[#20211F]/30 hover:shadow-md transition-all">
+              <div className="w-12 h-12 rounded-2xl bg-[#FAF9F6] border border-[#E5E3DE] flex items-center justify-center text-[#D9683B]">
+                <UserCheck className="w-6 h-6" />
+              </div>
+              <h3 className="font-heading text-xl font-bold text-[#20211F]">Vetted & Polite Craftsmen</h3>
               <p className="text-xs sm:text-sm text-[#73736F] leading-relaxed">
-                All our painters are polite, verified professionals who respect your family’s privacy and peace of mind while working inside your home.
+                All our painters are background-checked, uniformed professionals who respect family privacy, maintain a quiet work environment, and follow strict non-smoking, clean-site guidelines.
               </p>
             </div>
 
-            <div className="bg-white rounded-3xl border-2 border-[#E5E3DE] p-7 space-y-3 shadow-xs">
-              <span className="text-3xl">⏱️</span>
-              <h3 className="font-heading text-xl font-bold text-[#20211F]">Clear Project Timeline</h3>
+            <div className="bg-white rounded-3xl border border-[#E5E3DE] p-8 space-y-4 shadow-xs hover:border-[#20211F]/30 hover:shadow-md transition-all">
+              <div className="w-12 h-12 rounded-2xl bg-[#FAF9F6] border border-[#E5E3DE] flex items-center justify-center text-[#D9683B]">
+                <Clock className="w-6 h-6" />
+              </div>
+              <h3 className="font-heading text-xl font-bold text-[#20211F]">Strict Milestone Timelines</h3>
               <p className="text-xs sm:text-sm text-[#73736F] leading-relaxed">
-                We agree on a clear start and completion date before work begins. Our team works dedicatedly so your home is finished and handed over on schedule.
+                We commit to exact start dates and finish days in writing. A dedicated project supervisor tracks daily progress so your home is ready and handed over without unexpected delays.
               </p>
             </div>
 
-            <div className="bg-white rounded-3xl border-2 border-[#E5E3DE] p-7 space-y-3 shadow-xs">
-              <span className="text-3xl">📜</span>
-              <h3 className="font-heading text-xl font-bold text-[#20211F]">Workmanship Support</h3>
+            <div className="bg-white rounded-3xl border border-[#E5E3DE] p-8 space-y-4 shadow-xs hover:border-[#20211F]/30 hover:shadow-md transition-all">
+              <div className="w-12 h-12 rounded-2xl bg-[#FAF9F6] border border-[#E5E3DE] flex items-center justify-center text-[#D9683B]">
+                <ShieldCheck className="w-6 h-6" />
+              </div>
+              <h3 className="font-heading text-xl font-bold text-[#20211F]">Post-Handover Support</h3>
               <p className="text-xs sm:text-sm text-[#73736F] leading-relaxed">
-                We don’t disappear after getting paid. If you notice any spot requiring touch-up or edge refinement after work, our supervisor is just a message away.
+                We never disappear after payment. Every project includes leftover labelled paint cans for future touch-ups and our supervisor remains directly reachable on WhatsApp for any warranty claims.
               </p>
             </div>
           </div>
@@ -174,15 +225,18 @@ export const AboutPage: React.FC = () => {
             Book a free 15-minute home visit. We will measure your rooms, show you genuine paint shade cards, and give you an exact price.
           </p>
           <div className="pt-2">
-            <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.96 }} className="inline-block">
-              <Link
-                to="/quote"
-                className="inline-flex items-center gap-2 rounded-xl bg-[#D9683B] px-8 py-4 text-base font-extrabold text-white hover:bg-[#c4572b] transition-all shadow-md animate-cta-pulse"
-              >
-                <span>Schedule Free Home Visit</span>
-                <ArrowUpRight className="h-5 w-5" />
-              </Link>
-            </motion.div>
+            <ArrowFillButton
+              to="/quote"
+              size="lg"
+              text="Schedule Free Home Visit"
+              baseBg="#D9683B"
+              fillBg="#FAF9F6"
+              textColor="#ffffff"
+              fillTextColor="#20211F"
+              badgeBg="rgba(255, 255, 255, 0.2)"
+              badgeTextColor="#ffffff"
+              className="shadow-2xl"
+            />
           </div>
         </div>
       </section>

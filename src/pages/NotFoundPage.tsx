@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Home as HomeIcon } from 'lucide-react';
+import { ArrowFillButton } from '../components/common/ArrowFillButton';
 
 export const NotFoundPage: React.FC = () => {
   return (
@@ -15,20 +15,29 @@ export const NotFoundPage: React.FC = () => {
         <p className="text-sm text-[#73736F] leading-relaxed">
           The page or project you requested could not be located. It may have moved or been updated.
         </p>
-        <div className="pt-4 flex items-center justify-center gap-4">
-          <Link
+        <div className="pt-4 flex flex-wrap items-center justify-center gap-3">
+          <ArrowFillButton
             to="/"
-            className="inline-flex items-center gap-2 rounded-md bg-[#20211F] px-5 py-2.5 text-xs font-semibold text-white hover:bg-[#D9683B] transition-colors"
-          >
-            <HomeIcon className="h-4 w-4" />
-            <span>Return Home</span>
-          </Link>
-          <Link
+            size="default"
+            text="Return Home"
+            icon={HomeIcon}
+            bgColor="#20211F"
+            fillBgColor="#D9683B"
+            textColor="#ffffff"
+            fillTextColor="#ffffff"
+            arrowColor="#ffffff"
+          />
+          <ArrowFillButton
             to="/services"
-            className="inline-flex items-center gap-1.5 rounded-md border border-[#E5E3DE] bg-white px-5 py-2.5 text-xs font-semibold text-[#20211F] hover:bg-[#F1F0EC]"
-          >
-            <span>Browse Services</span>
-          </Link>
+            size="default"
+            text="Browse Services"
+            bgColor="#ffffff"
+            fillBgColor="#F1F0EC"
+            textColor="#20211F"
+            fillTextColor="#20211F"
+            arrowColor="#D9683B"
+            className="border border-[#E5E3DE]"
+          />
         </div>
       </div>
     </div>

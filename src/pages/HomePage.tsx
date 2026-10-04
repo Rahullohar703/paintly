@@ -2,15 +2,24 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
-  ArrowUpRight, 
   ArrowRight, 
   BadgePercent, 
   Check,
   Palette,
-  MapPin
+  MapPin,
+  Clock,
+  ShieldCheck,
+  FileCheck,
+  Sparkles,
+  Home,
+  Layers,
+  SearchCheck,
+  ClipboardCheck,
+  Star
 } from 'lucide-react';
 import { pricingPackages } from '../data/pricingData';
 import { PricingCalculator } from '../components/common/PricingCalculator';
+import { ArrowFillButton } from '../components/common/ArrowFillButton';
 
 const wallColorOptions = [
   { name: 'Warm Cream', shade: 'Asian Paints Royale Morning Sun (0412)', hex: '#FAF3E3', description: 'Best for Living Rooms & Halls' },
@@ -53,42 +62,54 @@ export const HomePage: React.FC = () => {
                 Got dirty walls, peeling paint, or damp patches? We cover your sofas and beds with plastic sheets, repair wall cracks with smooth putty, and paint with 100% original <strong>Asian Paints & Berger</strong>. Clear written quotation with zero surprise costs.
               </p>
 
-              {/* Big, easy-to-click buttons with animations */}
+              {/* Big, interactive buttons with expanding fill & dual arrows */}
               <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
-                <motion.div whileHover={{ scale: 1.03, y: -2 }} whileTap={{ scale: 0.97 }}>
-                  <Link
-                    to="/quote"
-                    className="inline-flex items-center justify-center gap-2.5 rounded-xl bg-[#D9683B] px-8 py-4 text-base font-extrabold text-white shadow-md hover:bg-[#c4572b] transition-all animate-cta-pulse w-full sm:w-auto"
-                  >
-                    <span>Book Free Home Visit</span>
-                    <ArrowUpRight className="h-5 w-5" />
-                  </Link>
-                </motion.div>
+                <ArrowFillButton
+                  to="/quote"
+                  size="lg"
+                  text="Book Free Home Visit"
+                  baseBg="#D9683B"
+                  fillBg="#20211F"
+                  textColor="#ffffff"
+                  fillTextColor="#FAF9F6"
+                  badgeBg="rgba(255, 255, 255, 0.2)"
+                  className="shadow-lg hover:shadow-xl w-full sm:w-auto"
+                />
 
-                <motion.div whileHover={{ scale: 1.03, y: -2 }} whileTap={{ scale: 0.97 }}>
-                  <a
-                    href="#pricing"
-                    className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-[#20211F] bg-white px-7 py-4 text-base font-bold text-[#20211F] hover:bg-[#F1F0EC] transition-all w-full sm:w-auto"
-                  >
-                    <BadgePercent className="h-5 w-5 text-[#D9683B]" />
-                    <span>See Price Packages</span>
-                  </a>
-                </motion.div>
+                <ArrowFillButton
+                  href="#pricing"
+                  size="lg"
+                  text="See Price Packages"
+                  baseBg="#ffffff"
+                  fillBg="#F1F0EC"
+                  textColor="#20211F"
+                  fillTextColor="#20211F"
+                  badgeBg="#E5E3DE"
+                  badgeTextColor="#D9683B"
+                  icon={BadgePercent}
+                  className="border border-[#D1CEC6] shadow-sm w-full sm:w-auto"
+                />
               </div>
 
-              {/* 3 Honest Promises */}
-              <div className="pt-3 grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs sm:text-sm font-bold text-[#20211F]">
-                <div className="flex items-center gap-2 bg-white p-3 rounded-xl border border-[#E5E3DE] shadow-xs">
-                  <span className="text-lg">🛋️</span>
-                  <span>Furniture Plastic Covering</span>
+              {/* 3 Craftsman Guarantees */}
+              <div className="pt-3 grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs font-semibold text-[#20211F]">
+                <div className="flex items-center gap-2.5 bg-white/95 backdrop-blur-xs p-3 rounded-xl border border-[#20211F]/10 shadow-xs">
+                  <div className="w-7 h-7 rounded-lg bg-[#FAF9F6] border border-[#20211F]/10 flex items-center justify-center shrink-0 text-[#D9683B]">
+                    <ShieldCheck className="w-4 h-4" />
+                  </div>
+                  <span className="leading-tight font-medium">100% Sealed Paint Cans</span>
                 </div>
-                <div className="flex items-center gap-2 bg-white p-3 rounded-xl border border-[#E5E3DE] shadow-xs">
-                  <span className="text-lg">📜</span>
-                  <span>Clear Written Quotation</span>
+                <div className="flex items-center gap-2.5 bg-white/95 backdrop-blur-xs p-3 rounded-xl border border-[#20211F]/10 shadow-xs">
+                  <div className="w-7 h-7 rounded-lg bg-[#FAF9F6] border border-[#20211F]/10 flex items-center justify-center shrink-0 text-[#D9683B]">
+                    <Sparkles className="w-4 h-4" />
+                  </div>
+                  <span className="leading-tight font-medium">Full Plastic Masking</span>
                 </div>
-                <div className="flex items-center gap-2 bg-white p-3 rounded-xl border border-[#E5E3DE] shadow-xs">
-                  <span className="text-lg">🥫</span>
-                  <span>Original Sealed Paint Cans</span>
+                <div className="flex items-center gap-2.5 bg-white/95 backdrop-blur-xs p-3 rounded-xl border border-[#20211F]/10 shadow-xs">
+                  <div className="w-7 h-7 rounded-lg bg-[#FAF9F6] border border-[#20211F]/10 flex items-center justify-center shrink-0 text-[#D9683B]">
+                    <FileCheck className="w-4 h-4" />
+                  </div>
+                  <span className="leading-tight font-medium">Written Fixed Quote</span>
                 </div>
               </div>
             </motion.div>
@@ -111,8 +132,10 @@ export const HomePage: React.FC = () => {
                 </div>
 
                 {/* Badge 1 */}
-                <div className="absolute top-4 left-4 rounded-xl bg-white/95 backdrop-blur-md px-3.5 py-2.5 border border-[#E5E3DE] shadow-md flex items-center gap-2.5">
-                  <span className="text-xl">🏠</span>
+                <div className="absolute top-4 left-4 rounded-xl bg-white/95 backdrop-blur-md px-3.5 py-2.5 border border-[#20211F]/10 shadow-md flex items-center gap-2.5">
+                  <div className="w-7 h-7 rounded-lg bg-[#FAF9F6] border border-[#20211F]/10 flex items-center justify-center shrink-0 text-[#D9683B]">
+                    <Home className="w-4 h-4" />
+                  </div>
                   <div>
                     <p className="text-xs font-bold text-[#20211F]">Free Home Visit</p>
                     <p className="text-[10px] text-[#73736F]">Room check & original shade cards</p>
@@ -120,8 +143,10 @@ export const HomePage: React.FC = () => {
                 </div>
 
                 {/* Badge 2 */}
-                <div className="absolute bottom-4 right-4 rounded-xl bg-[#20211F]/90 backdrop-blur-md px-3.5 py-2 border border-white/10 text-white shadow-md flex items-center gap-2">
-                  <span className="text-xl">🛡️</span>
+                <div className="absolute bottom-4 right-4 rounded-xl bg-[#20211F]/95 backdrop-blur-md px-3.5 py-2 border border-white/10 text-white shadow-md flex items-center gap-2.5">
+                  <div className="w-7 h-7 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center shrink-0 text-emerald-400">
+                    <ShieldCheck className="w-4 h-4" />
+                  </div>
                   <div className="text-left">
                     <p className="text-xs font-bold">100% Genuine Paint</p>
                     <p className="text-[10px] text-[#CDCAC2]">Asian Paints & Berger sealed cans</p>
@@ -175,70 +200,147 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* 2. THREE REAL STEPS (HOW IT WORKS) */}
-      <section className="py-16 md:py-20 bg-white border-b border-[#E5E3DE]">
+      {/* 2. ARCHITECTURAL EXECUTION METHODOLOGY */}
+      <section className="py-20 md:py-24 bg-white border-b border-[#E5E3DE]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
+          <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
             <span className="text-xs font-bold uppercase tracking-widest text-[#D9683B]">
-              Simple & Straightforward
+              Execution Methodology
             </span>
-            <h2 className="font-heading text-3xl sm:text-4xl font-extrabold text-[#20211F]">
-              How It Works: 3 Simple Steps
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#20211F]">
+              How We Deliver Perfection, Step by Step
             </h2>
-            <p className="text-sm sm:text-base text-[#73736F]">
-              You don't have to worry about buying paint, finding workers, or cleaning the mess.
+            <p className="text-sm sm:text-base text-[#73736F] leading-relaxed">
+              No guesswork, no paint droplets on furniture, and no hidden charges. Every home follows our strict contractor protocols.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-[#FAF9F6] rounded-2xl border-2 border-[#E5E3DE] p-7 space-y-3 shadow-xs">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#D9683B] text-white font-extrabold text-xl font-heading shadow-sm">
-                1
+            {/* Phase 01 */}
+            <div className="group rounded-3xl border border-[#E5E3DE] bg-[#FAF9F6] p-7 sm:p-8 flex flex-col justify-between hover:border-[#20211F]/30 hover:shadow-lg transition-all duration-300">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-[#20211F] text-white">
+                    Phase 01 • Day 0
+                  </span>
+                  <div className="w-10 h-10 rounded-2xl bg-white border border-[#E5E3DE] flex items-center justify-center text-[#D9683B] group-hover:scale-110 transition-transform">
+                    <SearchCheck className="w-5 h-5" />
+                  </div>
+                </div>
+
+                <h3 className="font-heading text-xl font-bold text-[#20211F] leading-snug">
+                  On-Site Technical Survey & Dampness Diagnostic
+                </h3>
+
+                <p className="text-xs sm:text-sm text-[#73736F] leading-relaxed">
+                  Our project engineer visits your home with digital pinless moisture meters and laser measures. We map hairline wall cracks, check for underlying seepage, and let you select genuine shades on physical fandecks.
+                </p>
+
+                <div className="pt-2 space-y-2 border-t border-[#E5E3DE]/70 text-xs text-[#20211F]">
+                  <div className="flex items-center gap-2">
+                    <Check className="w-3.5 h-3.5 text-[#D9683B] shrink-0" />
+                    <span>Laser square-footage & moisture audit</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Check className="w-3.5 h-3.5 text-[#D9683B] shrink-0" />
+                    <span>Itemized written quote with zero price creep</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Check className="w-3.5 h-3.5 text-[#D9683B] shrink-0" />
+                    <span>100% Free visit with zero sales pressure</span>
+                  </div>
+                </div>
               </div>
-              <h3 className="font-heading text-xl font-bold text-[#20211F]">
-                Free In-Person Home Visit
-              </h3>
-              <p className="text-sm text-[#73736F] leading-relaxed">
-                Our experienced supervisor visits your home at your convenience. We inspect your walls for cracks and dampness, take room measurements, show you original shade cards, and give you an exact price on paper. <strong>100% free visit, zero obligation.</strong>
-              </p>
             </div>
 
-            <div className="bg-[#FAF9F6] rounded-2xl border-2 border-[#E5E3DE] p-7 space-y-3 shadow-xs">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#20211F] text-white font-extrabold text-xl font-heading shadow-sm">
-                2
+            {/* Phase 02 */}
+            <div className="group rounded-3xl border border-[#E5E3DE] bg-[#FAF9F6] p-7 sm:p-8 flex flex-col justify-between hover:border-[#20211F]/30 hover:shadow-lg transition-all duration-300">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-[#D9683B] text-white">
+                    Phase 02 • Days 1 – 3
+                  </span>
+                  <div className="w-10 h-10 rounded-2xl bg-white border border-[#E5E3DE] flex items-center justify-center text-[#D9683B] group-hover:scale-110 transition-transform">
+                    <Layers className="w-5 h-5" />
+                  </div>
+                </div>
+
+                <h3 className="font-heading text-xl font-bold text-[#20211F] leading-snug">
+                  Clean-Shield Masking & Double-Coat Precision
+                </h3>
+
+                <p className="text-xs sm:text-sm text-[#73736F] leading-relaxed">
+                  Every sofa, television, bed, and floor tile is vacuumed and hermetically sealed with heavy-duty film. Walls are prepared with acrylic putty skimming, sealed with primer, and roller-coated with 2 coats of original emulsion.
+                </p>
+
+                <div className="pt-2 space-y-2 border-t border-[#E5E3DE]/70 text-xs text-[#20211F]">
+                  <div className="flex items-center gap-2">
+                    <Check className="w-3.5 h-3.5 text-[#D9683B] shrink-0" />
+                    <span>100% Sealed cans unboxed before your eyes</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Check className="w-3.5 h-3.5 text-[#D9683B] shrink-0" />
+                    <span>Hermetic furniture & floor protection film</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Check className="w-3.5 h-3.5 text-[#D9683B] shrink-0" />
+                    <span>Dust-free sanding & flawless roller texture</span>
+                  </div>
+                </div>
               </div>
-              <h3 className="font-heading text-xl font-bold text-[#20211F]">
-                We Cover Everything & Paint
-              </h3>
-              <p className="text-sm text-[#73736F] leading-relaxed">
-                Before any paint is opened, our painters cover your sofa, bed, TV, fans, and floors with fresh plastic sheets and masking tape. We fill cracks with smooth wall putty, apply primer, and paint two coats of genuine brand paint.
-              </p>
             </div>
 
-            <div className="bg-[#FAF9F6] rounded-2xl border-2 border-[#E5E3DE] p-7 space-y-3 shadow-xs">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-600 text-white font-extrabold text-xl font-heading shadow-sm">
-                3
+            {/* Phase 03 */}
+            <div className="group rounded-3xl border border-[#E5E3DE] bg-[#FAF9F6] p-7 sm:p-8 flex flex-col justify-between hover:border-[#20211F]/30 hover:shadow-lg transition-all duration-300">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-emerald-700 text-white">
+                    Phase 03 • Day 4
+                  </span>
+                  <div className="w-10 h-10 rounded-2xl bg-white border border-[#E5E3DE] flex items-center justify-center text-[#D9683B] group-hover:scale-110 transition-transform">
+                    <ClipboardCheck className="w-5 h-5" />
+                  </div>
+                </div>
+
+                <h3 className="font-heading text-xl font-bold text-[#20211F] leading-snug">
+                  40-Point Inspection & Warranty Handover
+                </h3>
+
+                <p className="text-xs sm:text-sm text-[#73736F] leading-relaxed">
+                  All masking tape is gently peeled, floors are thoroughly swept, and furniture is returned to its exact placement. Our supervisor walks through every room with high-lumen inspection lights before signing off.
+                </p>
+
+                <div className="pt-2 space-y-2 border-t border-[#E5E3DE]/70 text-xs text-[#20211F]">
+                  <div className="flex items-center gap-2">
+                    <Check className="w-3.5 h-3.5 text-[#D9683B] shrink-0" />
+                    <span>High-lumen edge & perimeter quality audit</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Check className="w-3.5 h-3.5 text-[#D9683B] shrink-0" />
+                    <span>Zero debris, spotless floor & furniture reset</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Check className="w-3.5 h-3.5 text-[#D9683B] shrink-0" />
+                    <span>Signed 3-Year Warranty Certificate handover</span>
+                  </div>
+                </div>
               </div>
-              <h3 className="font-heading text-xl font-bold text-[#20211F]">
-                Clean Handover & Inspection
-              </h3>
-              <p className="text-sm text-[#73736F] leading-relaxed">
-                We remove all plastic tape, sweep and tidy the floors, and put all furniture back in its place. Our supervisor walks through every room with you to inspect each wall before final project handover.
-              </p>
             </div>
           </div>
 
-          <div className="mt-10 text-center">
-            <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.96 }} className="inline-block">
-              <Link
-                to="/quote"
-                className="inline-flex items-center gap-2 rounded-xl bg-[#D9683B] px-8 py-4 text-base font-extrabold text-white shadow-md hover:bg-[#c4572b] transition-all animate-cta-pulse"
-              >
-                <span>Book Your Free Home Visit</span>
-                <ArrowRight className="h-5 w-5" />
-              </Link>
-            </motion.div>
+          <div className="mt-12 text-center">
+            <ArrowFillButton
+              to="/quote"
+              size="lg"
+              text="Schedule Your Technical Survey"
+              baseBg="#20211F"
+              fillBg="#D9683B"
+              textColor="#FAF9F6"
+              fillTextColor="#ffffff"
+              badgeBg="rgba(255, 255, 255, 0.15)"
+              className="shadow-xl"
+            />
           </div>
 
         </div>
@@ -252,10 +354,10 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* 4. HONEST PRICING PACKAGES (CLEAR CARDS) */}
-      <section id="pricing" className="py-20 md:py-28 border-b border-[#E5E3DE] bg-[#FAF9F6] scroll-mt-20">
+      <section id="pricing" className="py-16 md:py-24 border-b border-[#E5E3DE] bg-[#FAF9F6] scroll-mt-28 sm:scroll-mt-36">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
+          <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16 space-y-3">
             <span className="text-xs font-bold uppercase tracking-widest text-[#D9683B]">
               Transparent Pricing
             </span>
@@ -268,77 +370,104 @@ export const HomePage: React.FC = () => {
           </div>
 
           {/* Pricing Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 items-stretch">
             {pricingPackages.map((pkg) => (
               <motion.div
                 key={pkg.id}
                 whileHover={{ y: -6 }}
                 transition={{ duration: 0.2 }}
-                className={`rounded-3xl border-2 p-6 sm:p-7 flex flex-col justify-between transition-all ${
+                className={`rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 h-full ${
                   pkg.popular
-                    ? 'border-[#D9683B] bg-white shadow-xl ring-4 ring-[#D9683B]/10 relative'
-                    : 'border-[#E5E3DE] bg-white shadow-xs hover:border-[#CDCAC2]'
+                    ? 'bg-[#20211F] text-white border-transparent ring-2 ring-[#D9683B]/60 shadow-2xl relative overflow-hidden'
+                    : 'bg-white border border-[#E5E3DE] shadow-xs hover:border-[#20211F]/30 hover:shadow-lg'
                 }`}
               >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className={`text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full ${
+                {pkg.popular && (
+                  <div className="absolute top-0 right-0 w-36 h-36 bg-[#D9683B]/15 rounded-full blur-3xl pointer-events-none" />
+                )}
+
+                <div className="flex-1 flex flex-col relative z-10">
+                  <div className="flex items-center justify-between gap-1.5 mb-4">
+                    <span className={`text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full whitespace-nowrap ${
                       pkg.popular
-                        ? 'bg-[#D9683B] text-white'
-                        : 'bg-[#F1F0EC] text-[#73736F]'
+                        ? 'bg-gradient-to-r from-[#D9683B] to-[#F29C38] text-white shadow-sm'
+                        : 'bg-[#FAF9F6] border border-[#E5E3DE] text-[#20211F]'
                     }`}>
-                      {pkg.badge}
+                      {pkg.popular ? `★ ${pkg.badge}` : pkg.badge}
                     </span>
-                    <span className="text-xs font-bold text-[#73736F]">
-                      ⏱️ {pkg.estimatedTimeline}
+                    <span className={`text-[11px] font-bold flex items-center gap-1 shrink-0 whitespace-nowrap ${
+                      pkg.popular ? 'text-[#CDCAC2]' : 'text-[#73736F]'
+                    }`}>
+                      <Clock className="w-3.5 h-3.5 text-[#D9683B]" />
+                      <span>{pkg.estimatedTimeline}</span>
                     </span>
                   </div>
 
-                  <h3 className="font-heading text-xl font-bold text-[#20211F]">
+                  <h3 className={`font-heading text-lg sm:text-xl font-bold ${
+                    pkg.popular ? 'text-white' : 'text-[#20211F]'
+                  }`}>
                     {pkg.name}
                   </h3>
-                  <p className="text-xs text-[#73736F] mt-1.5 min-h-[36px] leading-relaxed">
+                  <p className={`text-xs mt-1 min-h-[32px] leading-relaxed ${
+                    pkg.popular ? 'text-[#CDCAC2]' : 'text-[#73736F]'
+                  }`}>
                     {pkg.tagline}
                   </p>
 
                   {/* Price */}
-                  <div className="mt-5 pb-5 border-b border-[#E5E3DE]">
-                    <span className="font-heading text-3xl font-extrabold text-[#20211F]">
+                  <div className={`mt-4 pb-4 border-b ${
+                    pkg.popular ? 'border-white/10' : 'border-[#E5E3DE]'
+                  }`}>
+                    <div className={`font-heading font-extrabold text-xl sm:text-2xl xl:text-[23px] whitespace-nowrap tracking-tight leading-tight ${
+                      pkg.popular ? 'text-white' : 'text-[#20211F]'
+                    }`}>
                       {pkg.priceDisplay}
-                    </span>
-                    <span className="block text-xs text-[#73736F] mt-1 font-medium">
+                    </div>
+                    <span className={`block text-xs mt-1 font-medium leading-snug min-h-[28px] ${
+                      pkg.popular ? 'text-[#A2A29D]' : 'text-[#73736F]'
+                    }`}>
                       {pkg.unit}
                     </span>
                   </div>
 
-                  {/* Features */}
-                  <div className="mt-5 space-y-2.5 text-xs text-[#20211F]">
-                    <p className="font-bold text-[11px] uppercase tracking-wider text-[#73736F]">
-                      What is included:
-                    </p>
+                  {/* Specifications */}
+                  <div className="mt-5 space-y-2.5 text-xs flex-1">
                     {pkg.features.map((feat, fIdx) => (
-                      <div key={fIdx} className="flex items-start gap-2">
-                        <Check className="h-4 w-4 text-[#D9683B] flex-shrink-0 mt-0.5" />
-                        <span className="leading-snug">{feat}</span>
+                      <div key={fIdx} className="flex items-start gap-2.5">
+                        <div className={`w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${
+                          pkg.popular 
+                            ? 'bg-[#D9683B]/25 text-[#D9683B]' 
+                            : 'bg-[#FAF9F6] border border-[#E5E3DE] text-[#20211F]'
+                        }`}>
+                          <Check className="h-2.5 w-2.5" />
+                        </div>
+                        <span className={`leading-snug ${
+                          pkg.popular ? 'text-[#E5E3DE]' : 'text-[#3E3E3B]'
+                        }`}>
+                          {feat}
+                        </span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="pt-6 mt-6 border-t border-[#E5E3DE]">
-                  <motion.div whileHover={{ scale: 1.025, y: -2 }} whileTap={{ scale: 0.98 }}>
-                    <Link
-                      to={`/quote?service=${pkg.serviceSlug}`}
-                      className={`flex items-center justify-center gap-1.5 w-full rounded-xl py-3.5 text-xs sm:text-sm font-bold transition-all shadow-xs ${
-                        pkg.popular
-                          ? 'bg-[#D9683B] text-white hover:bg-[#c4572b] shadow-md'
-                          : 'bg-[#20211F] text-white hover:bg-[#D9683B]'
-                      }`}
-                    >
-                      <span>{pkg.ctaText}</span>
-                      <ArrowRight className="h-4 w-4" />
-                    </Link>
-                  </motion.div>
+                <div className={`pt-5 mt-5 border-t flex justify-center relative z-10 ${
+                  pkg.popular ? 'border-white/10' : 'border-[#E5E3DE]'
+                }`}>
+                  <ArrowFillButton
+                    to={`/quote?service=${pkg.serviceSlug}`}
+                    size="default"
+                    text={pkg.ctaText}
+                    baseBg={pkg.popular ? '#D9683B' : '#20211F'}
+                    fillBg={pkg.popular ? '#ffffff' : '#D9683B'}
+                    textColor="#ffffff"
+                    fillTextColor={pkg.popular ? '#20211F' : '#ffffff'}
+                    badgeBg={pkg.popular ? 'rgba(255, 255, 255, 0.25)' : 'rgba(255, 255, 255, 0.15)'}
+                    badgeTextColor="#ffffff"
+                    badgeFillBg={pkg.popular ? '#20211F' : '#ffffff'}
+                    badgeFillTextColor={pkg.popular ? '#ffffff' : '#D9683B'}
+                    className="w-full shadow-sm"
+                  />
                 </div>
               </motion.div>
             ))}
@@ -589,24 +718,28 @@ export const HomePage: React.FC = () => {
             {[
               {
                 name: 'Sunita Sharma',
+                initials: 'SS',
                 loc: 'Delhi NCR (2 BHK Flat)',
                 quote: 'They wrapped my sofa, bed, and TV in thick plastic. Not a single drop of paint fell on the marble floor. Very polite painters.',
                 stars: 5
               },
               {
                 name: 'Ramesh Iyer',
+                initials: 'RI',
                 loc: 'Bengaluru (3 BHK Apartment)',
                 quote: 'They gave me the exact quote on day one. Finished in 4 days and didn’t ask for a single extra rupee. Super reliable.',
                 stars: 5
               },
               {
                 name: 'Col. Gurpreet Singh',
+                initials: 'GS',
                 loc: 'Chandigarh (Independent Villa)',
                 quote: 'They checked the dampness in the guest bedroom before painting and fixed it properly. Beautiful Royale finish.',
                 stars: 5
               },
               {
                 name: 'Anand Patel',
+                initials: 'AP',
                 loc: 'Ahmedabad (1 BHK Rental Flat)',
                 quote: 'Got the flat painted in just 2 days before the new tenant moved in. Fast work, neat borders, and very fair price.',
                 stars: 5
@@ -614,26 +747,38 @@ export const HomePage: React.FC = () => {
             ].map((t, idx) => (
               <div
                 key={idx}
-                className="rounded-2xl border-2 border-[#E5E3DE] bg-white p-6 flex flex-col justify-between shadow-xs"
+                className="rounded-3xl border border-[#E5E3DE] bg-white p-6 sm:p-7 flex flex-col justify-between shadow-xs hover:border-[#20211F]/20 hover:shadow-md transition-all duration-200"
               >
-                <div className="space-y-3">
-                  <div className="flex text-[#D9683B]">
-                    {[...Array(t.stars)].map((_, i) => (
-                      <span key={i} className="text-sm">★</span>
-                    ))}
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div className="flex text-[#D9683B] gap-1">
+                      {[...Array(t.stars)].map((_, i) => (
+                        <Star key={i} className="w-3.5 h-3.5 fill-[#D9683B] text-[#D9683B]" />
+                      ))}
+                    </div>
+                    <div className="flex items-center gap-1 text-[10px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200/80">
+                      <ShieldCheck className="w-3 h-3 text-emerald-600" />
+                      <span>Verified Handover</span>
+                    </div>
                   </div>
-                  <p className="text-xs sm:text-sm text-[#20211F] leading-relaxed italic">
+
+                  <p className="text-xs sm:text-sm text-[#20211F] leading-relaxed">
                     &ldquo;{t.quote}&rdquo;
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-[#E5E3DE]">
-                  <p className="font-heading text-sm font-bold text-[#20211F]">
-                    {t.name}
-                  </p>
-                  <p className="text-[11px] text-[#73736F] mt-0.5">
-                    {t.loc}
-                  </p>
+                <div className="mt-6 pt-4 border-t border-[#E5E3DE] flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-full bg-[#FAF9F6] border border-[#E5E3DE] flex items-center justify-center font-heading font-extrabold text-xs text-[#20211F] shrink-0">
+                    {t.initials}
+                  </div>
+                  <div>
+                    <p className="font-heading text-sm font-bold text-[#20211F]">
+                      {t.name}
+                    </p>
+                    <p className="text-[11px] text-[#73736F]">
+                      {t.loc}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}
@@ -714,24 +859,29 @@ export const HomePage: React.FC = () => {
           </p>
 
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <motion.div whileHover={{ scale: 1.03, y: -2 }} whileTap={{ scale: 0.97 }} className="w-full sm:w-auto">
-              <Link
-                to="/quote"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-2xl bg-[#D9683B] px-9 py-4 text-base font-extrabold text-white shadow-xl hover:bg-[#c4572b] transition-all animate-cta-pulse"
-              >
-                <span>Book Free Home Visit</span>
-                <ArrowUpRight className="h-5 w-5" />
-              </Link>
-            </motion.div>
+            <ArrowFillButton
+              to="/quote"
+              size="lg"
+              text="Book Free Home Visit"
+              bgColor="#D9683B"
+              fillBgColor="#20211F"
+              textColor="#ffffff"
+              fillTextColor="#ffffff"
+              arrowColor="#ffffff"
+              className="w-full sm:w-auto shadow-2xl"
+            />
 
-            <motion.div whileHover={{ scale: 1.03, y: -2 }} whileTap={{ scale: 0.97 }} className="w-full sm:w-auto">
-              <Link
-                to="/contact"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-white/20 bg-white/5 px-8 py-4 text-base font-bold text-white hover:bg-white/10 transition-colors"
-              >
-                <span>Request Free Callback</span>
-              </Link>
-            </motion.div>
+            <ArrowFillButton
+              to="/contact"
+              size="lg"
+              text="Request Free Callback"
+              bgColor="rgba(255, 255, 255, 0.08)"
+              fillBgColor="#D9683B"
+              textColor="#ffffff"
+              fillTextColor="#ffffff"
+              arrowColor="#ffffff"
+              className="w-full sm:w-auto border-white/20 shadow-md"
+            />
           </div>
 
           <div className="pt-8 border-t border-white/10 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-xs sm:text-sm text-[#A2A29D]">
