@@ -35,14 +35,6 @@ export const Header: React.FC = () => {
           : 'bg-[#FAF9F6] border-b border-transparent'
       }`}
     >
-      {/* TOP ANNOUNCEMENT BAR */}
-      <div className="bg-[#20211F] text-[#FAF9F6] px-4 py-2 text-xs font-medium text-center border-b border-white/10 flex items-center justify-center gap-2">
-        <span className="inline-block h-2 w-2 rounded-full bg-[#D9683B] animate-pulse" />
-        <span>Professional Painting Services Across India • <strong>Free In-Person Home Visit & Estimate</strong></span>
-        <Link to="/quote" className="underline font-bold text-[#D9683B] hover:text-white transition-colors ml-1 hidden sm:inline">
-          Book Free Visit →
-        </Link>
-      </div>
 
       <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300 ${isScrolled ? 'py-3.5' : 'py-5'}`}>
         <div className="flex items-center justify-between">
